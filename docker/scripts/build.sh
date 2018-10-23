@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-AMBARI_REPO="http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.1.5/ambari.list"
+AMBARI_REPO="http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.7.1.0/ambari.list"
 AMBARI_DB_PASSWORD="bigdata"
 AMBARI_DB_NAME="ambari"
 AMBARI_DB_SCHEMA="ambari"

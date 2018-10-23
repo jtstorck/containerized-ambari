@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
-ARG ambari_repo=http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.1.5/ambari.list
+ARG ambari_repo=http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.7.1.0/ambari.list
+ARG hdp_utils_repo=http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.22/repos/ubuntu16
 ARG ambari_os_user=root
 ARG ambari_db_name=ambari
 ARG ambari_db_user=ambari
