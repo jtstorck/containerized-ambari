@@ -2,6 +2,8 @@
 Run Ambari within Docker containers!
 
 # Building and starting the cluster
+The database container must be running before running the build script, otherwise ambari-setup will fail when attempting to validate the connection to the external database.
+
 From the scripts directory:
 1. ./run.sh -d
 1. ./build.sh

@@ -18,5 +18,4 @@ RUN sed -i "s/^hostname=.*/hostname=$ambari_server_hostname/g" /etc/ambari-agent
 ADD scripts/start.sh /root/start.sh
 RUN chmod +x /root/start.sh
 
-EXPOSE 9091
 ENTRYPOINT  ["/root/start.sh"]
