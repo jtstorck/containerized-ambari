@@ -33,6 +33,15 @@ The Traefik dashboard is hosted at http://localhost:8080
 
 Ambari's Admin UI is hosted at http://ambari.traefik.localhost
 
+# Creating a cluster in Ambari's Admin UI
+When adding hosts, use the following expression:
+
+`ambari-node-[1-N].ambari-bridge`
+
+where *N* is the number of running ambar-node containers.
+
+Select "Perform manual registration" since the ambari-agent is already installed as part of the ambari-node containers' image. The warning dialogs can be dismissed, and the host registration process should be successful, allowing the cluster install to continue.
+
 # Logging
 You can tail the logs in any container:
 - docker logs -f traefik
