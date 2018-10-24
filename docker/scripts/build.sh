@@ -64,14 +64,14 @@ while [[ $# -ge 1 ]]; do
 done
 
 # http://stackoverflow.com/questions/59895/can-a-bash-script-tell-which-directory-it-is-stored-in#answer-246128
-BUILD_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd "$BUILD_DIR/../ambari-server"
+cd "$SCRIPT_DIR/../ambari-server"
 echo "Building ambari-server from $(pwd)"
 docker build --build-arg ambari_repo="$AMBARI_REPO" \
   --build-arg ambari-os-user="$AMBARI_OS_USER" \
   --build-arg ambari-db-user="$AMBARI_DB_USER" \
-  --build-arg ambari-db-namer="$AMBARI_DB_NAME" \
+  --build-arg ambari-db-name="$AMBARI_DB_NAME" \
   --build-arg ambari-db-schema="$AMBARI_DB_SCHEMA" \
   --build-arg ambari-db-password="$AMBARI_DB_PASSWORD" \
   --build-arg database_hostname="$DATABASE_HOSTNAME" \
@@ -82,7 +82,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-cd "$BUILD_DIR/../ambari-agent"
+cd "$SCRIPT_DIR/../ambari-agent"
 docker build --build-arg ambari_repo="$AMBARI_REPO" \
   --build-arg ambari_server_hostname="$AMBARI_SERVER_HOSTNAME.$NETWORK" \
   -t ambari-agent-ubuntu .

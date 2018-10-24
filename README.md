@@ -4,17 +4,36 @@ Run Ambari within Docker containers!
 # Building and starting the cluster
 The database container must be started before running the build script, otherwise ambari-setup will fail when attempting to validate the connection to the database container.
 
-From the scripts directory:
+## The run.sh script
+    usage: docker/scripts/run.sh -d -c [-n #] [-h]
+           -h or --help                    print this message and exit
+           -d or --database                starts the database container
+           -c or --cluster                 starts the cluster containers
+           -n or --agent-node-count        specifies the number of ambari-agent containers
+
+### From the scripts directory:
 1. ./run.sh -d
 1. ./build.sh
-1. ./run.sh -c
+1. ./run.sh -c [-n *n*]
+
+# Containers started by the run.sh script
+Several containers are started by the run.sh script:
+
+- run.sh -d
+  - postgres
+- run.sh -c -n *n*
+  - traefik
+  - ambari-server
+  - ambari-node-1
+  - ...
+  - ambari-node-*n*
+
+# Accessing Ambari's Admin UI
+Navigate to http://ambari.traefik.localhost
 
 # Logging
-You can tail the ambari-server logs in the ambari-server container:
+You can tail the logs in any container:
+- docker logs -f traefik
 - docker logs -f ambari-server
-
-or any of the agent containers:
-- docker logs -f ambari-node-_n_
-
-or the database container:
+- docker logs -f ambari-node-*n*
 - docker logs -f postgres

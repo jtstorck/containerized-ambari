@@ -1,0 +1,20 @@
+debug = true
+logLevel = "DEBUG"
+
+[entryPoints]
+    [entryPoints.http]
+    address = ":80"
+
+[traefikLog]
+
+[accessLog]
+
+[api]
+
+[ping]
+
+[docker]
+  watch = true
+  endpoint = "unix:///var/run/docker.sock"
+  domain = "traefik.localhost"
+  exposedByDefault = false
