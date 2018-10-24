@@ -28,8 +28,10 @@ Several containers are started by the run.sh script:
   - ...
   - ambari-node-*n*
 
-# Accessing Ambari's Admin UI
-Navigate to http://ambari.traefik.localhost
+# Using Traefik
+The Traefik dashboard is hosted at http://localhost:8080
+
+Ambari's Admin UI is hosted at http://ambari.traefik.localhost
 
 # Logging
 You can tail the logs in any container:
