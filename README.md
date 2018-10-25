@@ -36,11 +36,11 @@ Ambari's Admin UI is hosted at http://ambari.traefik.localhost
 # Creating a cluster in Ambari's Admin UI
 When adding hosts, use the following expression:
 
-`ambari-node-[1-N].ambari-bridge`
+`ambari-node-[1-n].ambari-bridge`
 
-where *N* is the number of running ambar-node containers.
+where *n* is the number of containers running ambari-agent.
 
-Select "Perform manual registration" since the ambari-agent is already installed as part of the ambari-node containers' image. The warning dialogs can be dismissed, and the host registration process should be successful, allowing the cluster install to continue.
+Select "Perform manual registration" since the ambari-agent is already installed as part of the ambari-agent containers' image. The warning dialogs can be dismissed, and the host registration process should be successful, allowing the cluster install to continue.
 
 # Logging
 You can tail the logs in any container:
