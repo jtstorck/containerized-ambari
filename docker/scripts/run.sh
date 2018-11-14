@@ -96,13 +96,16 @@ if [ "$CLUSTER" == "CLUSTER" ]; then
     --label traefik.port=8080 \
     --label traefik.enable=true \
     ambari-server-ubuntu
-    
+
   echo "Starting $NUM_AGENT_NODES ambari-agent containers"
   for ((n=1; n <= $NUM_AGENT_NODES; n++)) do
     docker run -d \
       --hostname $AMBARI_AGENT_HOSTNAME-$n.$NETWORK \
       --name $AMBARI_AGENT_HOSTNAME-$n \
       --network $NETWORK \
+      --label traefik.frontend.rule=Host:nifi.traefik.localhost \
+      --label traefik.port=9090 \
+      --label traefik.enable=true \
       ambari-agent-ubuntu
   done
 fi
